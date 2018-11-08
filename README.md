@@ -1,6 +1,6 @@
 A demo application for school management system.
 
-## How to use to in your local machine?
+## How to use it in your local machine?
 
 1. install `virtualenv`
 2. create a virtualenv using `virtualenv venv`
