@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.template.defaultfilters import slugify
+from django.urls import reverse
+
 
 # Teacher model create
 class Teachers(models.Model):
@@ -16,13 +18,8 @@ class Teachers(models.Model):
 
         super(Teachers, self).save(*args, **kwargs)
 
-    # Methods
-    def get_absolute_url(self):
-        """Returns the url to access a particular instance of MyModelName."""
-        return reverse('teacher-view', args=[str(self.id)])
-
     def __str__(self):
-        return self.teacher_name
+        return str(self.teacher_name)
     # Metadata
     class Meta:
         #
