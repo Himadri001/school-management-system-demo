@@ -4,5 +4,5 @@ from teacher.views import TeacherView
 
 urlpatterns = [
     path('addteacher/', TeacherView.as_view(), name='teacher'),
-    #path('addteacher/')
+    #path('viewteacher/', TeacherView.as_view(), name='teacher'),
 ]
