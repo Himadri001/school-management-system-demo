@@ -1,8 +1,8 @@
 # urls.py
 from django.urls import path
-from teacher.views import TeacherView
+from teacher.views import TeacherAddView, TeacherDashboardView
 
 urlpatterns = [
-    path('addteacher/', TeacherView.as_view(), name='teacher'),
-    path('viewteacher/', TeacherView.as_view(template_name= 'view_teacher.html'), name='teacher'),
+    path('addteacher/', TeacherAddView.as_view(), name='teacher'),
+    path('viewteacher/', TeacherDashboardView.as_view(), name='teacher'),
 ]

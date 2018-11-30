@@ -6,13 +6,12 @@ from teacher.models import Teachers
 from teacher.models import Teachers
 
 # Create your views here.
-class TeacherView(TemplateView):
-     template_name = 'add_teacher.html'
+class TeacherAddView(TemplateView):
+     # get method for showing the page
      def get(self,request):
-         model = Teachers
-         teacher_results = Teachers.objects.all()
-         print(teacher_results)
-         return render(request,'view_teacher.html',{'teacher_results': teacher_results})
+         return render(request,'add_teacher.html',{})
+
+
      def post(self, request):
          form = AddTeacherForm(request.POST)
          if form.is_valid():
@@ -20,14 +19,17 @@ class TeacherView(TemplateView):
             teacher.save()
             teacher_name = form.cleaned_data['teacher_name']
             phone_number = form.cleaned_data['phone_number']
+            gender = form.cleaned_data['gender']
             address = form.cleaned_data['address']
             return render(request, 'add_teacher.html', {})
          else:
              form = AddTeacherForm()
-         return render(request,'add_teacher.html')
 
 # teacher dashboard create
-def teacher_dashboard(self, request):
-    teacher_results = Teachers.object.all()
-    print(teacher_results)
-    return render(request, 'view_teacher.html', teacher_results)
+class TeacherDashboardView(TemplateView):
+
+    def get(self, request):
+        models = Teachers
+        teacher_results = Teachers.objects.all()
+        print(teacher_results)
+        return render(request, 'view_teacher.html', {'teacher_results': teacher_results})
