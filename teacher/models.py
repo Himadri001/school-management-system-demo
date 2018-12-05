@@ -12,13 +12,12 @@ class Teachers(models.Model):
                 ("Female", "Female"),
                 )
     # Field name
-    teacher_name = models.TextField(max_length=200, null=True)
-    phone_number = models.TextField(max_length=200, null=True)
-    address = models.TextField(max_length=200, null=True)
+    teacher_name = models.TextField(max_length=200, null=False)
+    phone_number = models.TextField(max_length=200, null=False)
+    address = models.TextField(max_length=200, null=False)
     gender = models.CharField(max_length=10, choices=gender_option)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-
 
     def save(self, *args, **kwargs):
         if not self.id:
